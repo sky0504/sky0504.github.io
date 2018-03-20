@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Windows环境GIT的SSH-KEY生成和添加 | 程序猿水哥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Windows环境GIT的SSH-KEY生成和添加</h1><a id="logo" href="/.">程序猿水哥</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Windows环境GIT的SSH-KEY生成和添加</h1><div class="post-meta">Mar 20, 2018<span> | </span><span class="category"><a href="/categories/Git/">Git</a></span></div><div class="post-content"><h2 id="产生KEY的相关文件位置变更"><a href="#产生KEY的相关文件位置变更" class="headerlink" title="产生KEY的相关文件位置变更"></a>产生KEY的相关文件位置变更</h2><blockquote>
+<p>如果不需要更改key默认生成位置和相关文件请跳过本步骤</p>
+</blockquote>
+<h3 id="文字描述"><a href="#文字描述" class="headerlink" title="文字描述"></a>文字描述</h3><ol>
+<li>在桌面我的电脑右击，选择最下边的<code>属性</code>，同样也可以打开系统属性界面(快捷键<code>windwos+Break</code>组合键)</li>
+<li>点击<code>高级系统设置</code>，接着点击<code>环境变量</code></li>
+<li>打开环境变量编辑界面后，点击<code>新建</code>，添加一个新的系统变量HOME，值为自己想设定的路径。最后点击确定，确定，确定。完成环境变量的设置。</li>
+</ol>
+<a id="more"></a>
+<h3 id="图片展示"><a href="#图片展示" class="headerlink" title="图片展示"></a>图片展示</h3><p><img src="http://7xt0y8.com1.z0.glb.clouddn.com/20160622100906.png" alt=""></p>
+<p><img src="http://7xt0y8.com1.z0.glb.clouddn.com/20160622112726.png" alt=""></p>
+<h2 id="生成和添加KEY"><a href="#生成和添加KEY" class="headerlink" title="生成和添加KEY"></a>生成和添加KEY</h2><h3 id="文字描述-1"><a href="#文字描述-1" class="headerlink" title="文字描述"></a>文字描述</h3><ol>
+<li>输入命令<code>ssh-keygen -t rsa -C &quot;bluesky0504@163.com&quot;</code>，然后点击回车</li>
+<li>根据提示的文字，输入你的结果。一般取默认路径和不设置密码，所以连续按三次回车，即可出现生成成功的结果</li>
+<li>成功之后，输入命令<code>clip &lt; id_rsa.pub</code>然后回车来拷贝产生的key</li>
+<li>打开你要添加的key的位置，然后添加上去</li>
+<li>最后添加完成之后，在本机上输入<code>ssh -T git@xxxx.com</code>，查看是否真正的添加成功。<blockquote>
+<p>第一项的<a href="mailto:`bluesky0504@163.com" target="_blank" rel="noopener">`bluesky0504@163.com</a><code>换成自己的邮件地址;第三步中的</code>id_rsa.pub<code>是生成的</code>id_rsa.pub<code>文件所在路径;最后一步的</code>xxxx.com`要换成自己的服务器地址</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="图片展示-1"><a href="#图片展示-1" class="headerlink" title="图片展示"></a>图片展示</h3><p>￼</p>
+<p><img src="http://7xt0y8.com1.z0.glb.clouddn.com/20160622102037%20.png" alt=""><br><img src="http://7xt0y8.com1.z0.glb.clouddn.com/20160622102320%20.png" alt=""></p>
+<blockquote>
+<p>本文相关软件下载  <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></p>
+</blockquote>
+</div><div class="tags"><a href="/tags/Git/">Git</a></div><div class="post-nav"><a class="pre" href="/2018/03/20/linux/Linux中启用root远程登录/">Linux中启用root远程登录</a><a class="next" href="/2018/03/16/security/基于MYSQL数据库的权限验证/">基于MYSQL数据库的权限验证</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  id: '1521535911000', 
+  owner: 'sky0504',
+  repo: 'sky0504.github.io',
+  oauth: {
+    client_id: '5efcad30d26e4058901e',
+    client_secret: '0735c2ae9fb9f2e9b8a886302b02318597f98873',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://sky0504.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/ETCD/" style="font-size: 15px;">ETCD</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/security/" style="font-size: 15px;">security</a> <a href="/tags/springboot/" style="font-size: 15px;">springboot</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/linux/Linux中启用root远程登录/">Linux中启用root远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/">Windows环境GIT的SSH-KEY生成和添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/security/基于MYSQL数据库的权限验证/">基于MYSQL数据库的权限验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/kubernetes/Linux下安装ETCD/">Linux下安装ETCD</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/08/docker/Ubuntu下安装Docker/">Ubuntu下安装Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/搭建博客/">搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">程序猿水哥.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho </a><p>浙ICP备16006348号 |  <img src="/images/ba.png"/> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010302001929">  公安机关备案33010302001929号</a></p></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'f1deaa9e1d3eaeec4656720b05de44a3';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
