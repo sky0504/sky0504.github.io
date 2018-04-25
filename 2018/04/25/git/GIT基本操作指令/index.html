@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>GIT基本操作指令 | 程序猿水哥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">GIT基本操作指令</h1><a id="logo" href="/.">程序猿水哥</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">GIT基本操作指令</h1><div class="post-meta">Apr 25, 2018<span> | </span><span class="category"><a href="/categories/Git/">Git</a></span></div><div class="post-content"><h3 id="下载指令"><a href="#下载指令" class="headerlink" title="下载指令"></a>下载指令</h3><p><code>git clone RemoteUrl</code></p>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p><code>git checkout -b dev origin/dev</code></p>
+<blockquote>
+<p>切换本地分支到服务器端dev分支中，并且本地分支的名称也命名为dev</p>
+</blockquote>
+<h3 id="获取代码"><a href="#获取代码" class="headerlink" title="获取代码"></a>获取代码</h3><p><code>git pull origin dev</code></p>
+<blockquote>
+<p>本地获取远程dev分支中的代码</p>
+</blockquote>
+<h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><p><code>git branch -d dev</code></p>
+<h3 id="修改最后一次提交的注释"><a href="#修改最后一次提交的注释" class="headerlink" title="修改最后一次提交的注释"></a>修改最后一次提交的注释</h3><p><code>git commit --amend</code></p>
+<h3 id="将本地分支推送到远程另外分支中"><a href="#将本地分支推送到远程另外分支中" class="headerlink" title="将本地分支推送到远程另外分支中"></a>将本地分支推送到远程另外分支中</h3><p><code>git push origin master:dev</code></p>
+<blockquote>
+<p>master是本地分支，dev是远程分支</p>
+</blockquote>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><p><code>git push origin --delete dev</code></p>
+<h3 id="删除本地分支-1"><a href="#删除本地分支-1" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><p><code>git branch --delete debug</code></p>
+<h3 id="回滚远程分支"><a href="#回滚远程分支" class="headerlink" title="回滚远程分支"></a>回滚远程分支</h3><p><code>git push -f</code></p>
+<blockquote>
+<ol>
+<li>先将本地分支回滚到指定提交</li>
+<li>将本地强制推送到远程分支</li>
+</ol>
+</blockquote>
+<h3 id="合并特定的commit到当前分支"><a href="#合并特定的commit到当前分支" class="headerlink" title="合并特定的commit到当前分支"></a>合并特定的commit到当前分支</h3><p><code>git cherry-pick  commit</code></p>
+<h3 id="迁移仓库"><a href="#迁移仓库" class="headerlink" title="迁移仓库"></a>迁移仓库</h3><ol>
+<li>从原地址克隆一份裸版本库，比如原本托管于 GitHub。</li>
+</ol>
+<p><code>git clone --bare git://github.com/username/project.git</code></p>
+<ol>
+<li><p>然后到新的 Git 服务器上创建一个新项目，比如 GitCafe。</p>
+</li>
+<li><p>以镜像推送的方式上传代码到 GitCafe 服务器上。</p>
+</li>
+</ol>
+<p><code>cd project.git</code></p>
+<p><code>git push --mirror git@gitcafe.com/username/newproject.git</code></p>
+<h3 id="修改远程分支地址"><a href="#修改远程分支地址" class="headerlink" title="修改远程分支地址"></a>修改远程分支地址</h3><p><code>git remote set-url origin git://github.com/username/project.git</code></p>
+<h3 id="删除本地tag：git-tag-d-tagName"><a href="#删除本地tag：git-tag-d-tagName" class="headerlink" title="删除本地tag：git tag -d [tagName]"></a>删除本地tag：git tag -d [tagName]</h3><p>例子：git tag -d v1.0.1</p>
+<h3 id="删除远程tag：git-push-origin-refs-tags-tagName-注意：“-”-前面要有空格"><a href="#删除远程tag：git-push-origin-refs-tags-tagName-注意：“-”-前面要有空格" class="headerlink" title="删除远程tag：git push origin :refs/tags/[tagName] 注意：“:” 前面要有空格"></a>删除远程tag：git push origin :refs/tags/[tagName] 注意：“:” 前面要有空格</h3><p>例子：git push origin :refs/tags/v1.0.1</p>
+<h3 id="查看最后一次提交信息"><a href="#查看最后一次提交信息" class="headerlink" title="查看最后一次提交信息"></a>查看最后一次提交信息</h3><ol>
+<li><code>git reflog -1 | sed &#39;s/^.*: //&#39;</code></li>
+<li><code>git log -1 --pretty=%B</code></li>
+</ol>
+</div><div class="tags"><a href="/tags/Git/">Git</a></div><div class="post-nav"><a class="next" href="/2018/04/09/iframe内嵌/">iframe内嵌</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  id: '1524620872000', 
+  owner: 'sky0504',
+  repo: 'sky0504.github.io',
+  oauth: {
+    client_id: '5efcad30d26e4058901e',
+    client_secret: '0735c2ae9fb9f2e9b8a886302b02318597f98873',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://sky0504.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iframe/">iframe</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/security/">security</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sprinboot/">sprinboot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/springboot/" style="font-size: 15px;">springboot</a> <a href="/tags/iframe/" style="font-size: 15px;">iframe</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/ETCD/" style="font-size: 15px;">ETCD</a> <a href="/tags/security/" style="font-size: 15px;">security</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/gradle/" style="font-size: 15px;">gradle</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/25/git/GIT基本操作指令/">GIT基本操作指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/09/iframe内嵌/">iframe内嵌</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/04/gradle/gradle入门/">gradle入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/30/springboot/SpringBoot项目更改端口号/">SpringBoot项目更改端口号</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/springboot/springboot项目使用Thymeleaf模板解析器/">springboot项目使用Thymeleaf模板解析器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/springboot/springboot项目通过redis来共享session/">springboot项目通过redis来共享session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/linux/Linux中启用root远程登录/">Linux中启用root远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/">Windows环境GIT的SSH-KEY生成和添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/security/基于MYSQL数据库的权限验证/">基于MYSQL数据库的权限验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/kubernetes/Linux下安装ETCD/">Linux下安装ETCD</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">程序猿水哥.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho </a><p>浙ICP备16006348号 |  <img src="/images/ba.png"/> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010302001929">  公安机关备案33010302001929号</a></p></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'f1deaa9e1d3eaeec4656720b05de44a3';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
