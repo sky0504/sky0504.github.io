@@ -625,7 +625,7 @@
                 
               
 
-              <time title="创建时间：2020-01-27 17:24:54 / 修改时间：17:50:13" itemprop="dateCreated datePublished" datetime="2020-01-27T17:24:54+08:00">2020-01-27</time>
+              <time title="创建时间：2020-01-27 17:24:54 / 修改时间：17:54:29" itemprop="dateCreated datePublished" datetime="2020-01-27T17:24:54+08:00">2020-01-27</time>
             
 
             
@@ -688,7 +688,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">503</span>
+                <span title="本文字数">475</span>
               
 
               
@@ -728,12 +728,12 @@
 <p><em>创建表空间</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表间名 datafile &apos;数据文件名&apos; size 表空间大小</span><br></pre></td></tr></table></figure></p>
 <p><em>删除表空间和数据文件等内容</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop tablespace 表间名 including contents and datafiles cascade constraint;</span><br></pre></td></tr></table></figure></p>
 <h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p><em>创建用户并赋予默认的表空间</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 default tablespace 表空间表;</span><br></pre></td></tr></table></figure></p>
-<p><em>授权用户权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource,dba to tempuser;</span><br></pre></td></tr></table></figure></p>
+<p><em>授权用户权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource,dba to 用户名;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>权限主要有三个、connect权限：是否允许连接。resource权限：数据增删改。dba权限：数据库管理</p>
 </blockquote>
-<p><em>授权用户表权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant select, update, insert on WANG.&quot;dept&quot; to seeing;</span><br></pre></td></tr></table></figure></p>
-<p><em>授权用户存储过程权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant execute,select on INSERT_DEPT to seeing;</span><br></pre></td></tr></table></figure></p>
+<p><em>授权用户表权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant select, update, insert on 表名称 to seeing;</span><br></pre></td></tr></table></figure></p>
+<p><em>授权用户存储过程权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant execute,select on 存储过程名称 to seeing;</span><br></pre></td></tr></table></figure></p>
 
           
         
