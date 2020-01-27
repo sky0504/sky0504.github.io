@@ -373,6 +373,649 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2020/01/27/middleware/oracle/SQLPlus_select/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sky">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿水哥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/27/middleware/oracle/SQLPlus_select/" class="post-title-link" itemprop="url">SQLPlus查询导出</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-27 17:48:54 / 修改时间：17:48:55" itemprop="dateCreated datePublished" datetime="2020-01-27T17:48:54+08:00">2020-01-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Soft/" itemprop="url" rel="index"><span itemprop="name">Soft</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2020/01/27/middleware/oracle/SQLPlus_select/" class="leancloud_visitors" data-flag-title="SQLPlus查询导出">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">922</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>在使用SQLPlus命令行进行查询时，难免会觉得查询结果不尽人意，展示效果比较差，下面介绍部分内容，供参考</p>
+</blockquote>
+<h3 id="SQLPlus连接上oracle后的设置命令"><a href="#SQLPlus连接上oracle后的设置命令" class="headerlink" title="SQLPlus连接上oracle后的设置命令"></a>SQLPlus连接上oracle后的设置命令</h3><p><code></code><br>set trimspool on;            #去除重定向（spool）输出每行的拖尾空格，缺省为off<br>set linesize 500;            #输出一行字符个数，缺省为80<br>set pagesize 30;             #输出每页行数，缺省为24,为了避免分页，可设定为0。<br>set newpage 3;               #页和页之间隔着n个空行<br>set heading off;             #输出域标题，缺省为on<br>set term off;                #显示脚本中的命令的执行结果，缺省为on<br>set timing on;               #设置显示“已用时间：XXXX”<br>set trimout on;              #去除标准输出每行的拖尾空格，缺省为off<br>set echo off;                #显示start启动的脚本中的每个sql命令，缺省为on<br>set feedback off;            #回显本次sql命令处理的记录条数，缺省为on<br>set numwidth 12;             #输出number类型域长度，缺省为10<br>set pause off;               #关闭从终端读取输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 导出查询结果到文件</span><br><span class="line"></span><br><span class="line">&gt; 常用导出前命令`set linesize 1000 pagesize 0 echo off termout off trimout on trimspool on feedback off pause off;`</span><br></pre></td></tr></table></figure></p>
+<p>spool /root/oracle/sql/test.sql;   #查询结果保存的文件<br>@/root/oracle/sql/test1.sql        #查询<br>spool off;                         ##把文件发送到标准打印输出<br><code>`</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2020/01/27/middleware/oracle/oracle_user_namespace/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sky">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿水哥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/27/middleware/oracle/oracle_user_namespace/" class="post-title-link" itemprop="url">oracle中表空间和用户相关命令</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-27 17:24:54 / 修改时间：17:24:56" itemprop="dateCreated datePublished" datetime="2020-01-27T17:24:54+08:00">2020-01-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Soft/" itemprop="url" rel="index"><span itemprop="name">Soft</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2020/01/27/middleware/oracle/oracle_user_namespace/" class="leancloud_visitors" data-flag-title="oracle中表空间和用户相关命令">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">503</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h3><p><em>查询所有表空间</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from v$tablespace;</span><br></pre></td></tr></table></figure></p>
+<p><em>创建表空间</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create tablespace 表间名 datafile &apos;数据文件名&apos; size 表空间大小</span><br></pre></td></tr></table></figure></p>
+<p><em>删除表空间和数据文件等内容</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop tablespace 表间名 including contents and datafiles cascade constraint;</span><br></pre></td></tr></table></figure></p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p><em>创建用户并赋予默认的表空间</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user 用户名 identified by 密码 default tablespace 表空间表;</span><br></pre></td></tr></table></figure></p>
+<p><em>授权用户权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource,dba to tempuser;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>权限主要有三个、connect权限：是否允许连接。resource权限：数据增删改。dba权限：数据库管理</p>
+</blockquote>
+<p><em>授权用户表权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant select, update, insert on WANG.&quot;dept&quot; to seeing;</span><br></pre></td></tr></table></figure></p>
+<p><em>授权用户存储过程权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant execute,select on INSERT_DEPT to seeing;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2020/01/27/middleware/Linux_install_SQLPlus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sky">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿水哥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/27/middleware/Linux_install_SQLPlus/" class="post-title-link" itemprop="url">Linux下安装SQLPlus</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-27 16:53:07 / 修改时间：17:19:01" itemprop="dateCreated datePublished" datetime="2020-01-27T16:53:07+08:00">2020-01-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Soft/" itemprop="url" rel="index"><span itemprop="name">Soft</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2020/01/27/middleware/Linux_install_SQLPlus/" class="leancloud_visitors" data-flag-title="Linux下安装SQLPlus">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener">下载文件地址</a></li>
+<li><a href="https://www.oracle.com/cn/database/technology/linuxx86-64soft.html" target="_blank" rel="noopener">安装文档</a></li>
+</ul>
+<blockquote>
+<p>需要下载的依赖包<code>oracle-instantclient11.2-sqlplus-11.2.0.4.0-1.x86_64.rpm</code>和<code>oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm</code></p>
+</blockquote>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><ol>
+<li>将下载好的依赖包至于同一文件夹下,执行安装命令<code>rpm -ivh oracle-instantclient*.rpm</code></li>
+<li>创建空文件<code>vi /etc/ld.so.conf.d/oracle-instantclient.conf</code></li>
+<li>如果 Instant Client 是此系统上安装的唯一 Oracle 软件，则更新运行时链接路径<code>sudo sh -c &quot;echo /usr/lib/oracle/11.2/client64/lib &gt; /etc/ld.so.conf.d/oracle-instantclient.conf&quot;</code></li>
+<li>在配置文件<code>~/.bash_profile</code>中添加<code>export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH</code>；同时可添加配置<code>export PATH=/usr/lib/oracle/11.2/client64/bin:$PATH</code>;</li>
+<li>创建文件路径<code>sudo mkdir -p /usr/lib/oracle/11.2/client64/lib/network/admin</code></li>
+<li>添加oracle连接配置文件内容<code>vi /usr/lib/oracle/11.2/client64/lib/network/admin/tnsnames.ora</code>内容如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WANG =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.68.75.195)(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">      (SERVICE_NAME = WANG)</span><br><span class="line">    )</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h2><p><em>linux连接成功后如果出现中文乱码</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NLS_LANG=AMERICAN_AMERICA.UTF8</span><br></pre></td></tr></table></figure>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ul>
+<li><p>无日志连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlplus /nolog</span><br><span class="line">conn name/password@192.68.75.195/WANG as SYSDBA</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus user/password@//hostname:port/service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过tnsnames.ora连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus seeing/seeing@WANG</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2019/01/27/soft/VsCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1930,641 +2573,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2018/03/20/springboot/springboot项目通过redis来共享session/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sky">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序猿水哥">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/20/springboot/springboot项目通过redis来共享session/" class="post-title-link" itemprop="url">springboot项目通过redis来共享session</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-20 17:30:31 / 修改时间：17:31:32" itemprop="dateCreated datePublished" datetime="2018-03-20T17:30:31+08:00">2018-03-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/03/20/springboot/springboot项目通过redis来共享session/" class="leancloud_visitors" data-flag-title="springboot项目通过redis来共享session">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">热度：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-                <span>℃</span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">656</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="引入必要的依赖包"><a href="#引入必要的依赖包" class="headerlink" title="引入必要的依赖包"></a>引入必要的依赖包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-session&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="redis连接配置"><a href="#redis连接配置" class="headerlink" title="redis连接配置"></a>redis连接配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    host: 192.168.1.189</span><br><span class="line">    port: 6379</span><br><span class="line">    password: GHleYdcc</span><br></pre></td></tr></table></figure>
-<h3 id="主类添加必要的注解"><a href="#主类添加必要的注解" class="headerlink" title="主类添加必要的注解"></a>主类添加必要的注解</h3><p>在程序入口类中添加<code>@EnableRedisHttpSession</code>注解，即可完成session的共享。</p>
-<p>推荐设置<code>@EnableRedisHttpSession(redisNamespace=&quot;user&quot;,maxInactiveIntervalInSeconds=1200)</code>，通过redisNamespace为该应用的session添加前缀防止冲突，maxInactiveIntervalInSeconds来设置session的过期时间。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2018/03/20/linux/Linux中启用root远程登录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sky">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序猿水哥">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/20/linux/Linux中启用root远程登录/" class="post-title-link" itemprop="url">Linux中启用root远程登录</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-20 17:05:44 / 修改时间：17:08:04" itemprop="dateCreated datePublished" datetime="2018-03-20T17:05:44+08:00">2018-03-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/03/20/linux/Linux中启用root远程登录/" class="leancloud_visitors" data-flag-title="Linux中启用root远程登录">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">热度：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-                <span>℃</span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">432</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>ssh 是客户端<br>sshd 应该是服务器端的<br>ssh-agent ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序</p>
-</blockquote>
-<h2 id="查看ssh状态"><a href="#查看ssh状态" class="headerlink" title="查看ssh状态"></a>查看ssh状态</h2><p><code>ps -e |grep ssh</code>或者<code>rpm -qa |grep ssh</code></p>
-<h2 id="Failed-to-start-ssh-service-Unit-ssh-service-not-found"><a href="#Failed-to-start-ssh-service-Unit-ssh-service-not-found" class="headerlink" title="Failed to start ssh.service: Unit ssh.service not found."></a>Failed to start ssh.service: Unit ssh.service not found.</h2><p>未安装ssh，安装即可<code>apt-get install openssh-server</code></p>
-<p>su passwd<br>先给root用户设置密码，然后才可以通过root账户登陆</p>
-<h2 id="设置-etc-ssh-sshd-config"><a href="#设置-etc-ssh-sshd-config" class="headerlink" title="设置/etc/ssh/sshd_config"></a>设置<code>/etc/ssh/sshd_config</code></h2><ol>
-<li>设置后允许root用户远程登录<code>PermitRootLogin yes</code></li>
-<li><code>PasswordAuthentication yes</code></li>
-<li><code>UseDNS no</code></li>
-</ol>
-<blockquote>
-<p>重启ssh<code>/etc/init.d/ssh restart</code></p>
-</blockquote>
-<blockquote>
-<p>如若还是不能远程登录的话，可能是root密码忘记设置了<br><code>sudo passwd root</code><br>设置一下密码就可以远程登录了</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sky0504.github.io/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sky">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序猿水哥">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/" class="post-title-link" itemprop="url">Windows环境GIT的SSH-KEY生成和添加</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-20 16:51:51 / 修改时间：16:53:25" itemprop="dateCreated datePublished" datetime="2018-03-20T16:51:51+08:00">2018-03-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/" class="leancloud_visitors" data-flag-title="Windows环境GIT的SSH-KEY生成和添加">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">热度：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-                <span>℃</span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">558</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="产生KEY的相关文件位置变更"><a href="#产生KEY的相关文件位置变更" class="headerlink" title="产生KEY的相关文件位置变更"></a>产生KEY的相关文件位置变更</h2><blockquote>
-<p>如果不需要更改key默认生成位置和相关文件请跳过本步骤</p>
-</blockquote>
-<h3 id="文字描述"><a href="#文字描述" class="headerlink" title="文字描述"></a>文字描述</h3><ol>
-<li>在桌面我的电脑右击，选择最下边的<code>属性</code>，同样也可以打开系统属性界面(快捷键<code>windwos+Break</code>组合键)</li>
-<li>点击<code>高级系统设置</code>，接着点击<code>环境变量</code></li>
-<li>打开环境变量编辑界面后，点击<code>新建</code>，添加一个新的系统变量HOME，值为自己想设定的路径。最后点击确定，确定，确定。完成环境变量的设置。</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/03/20/Windows环境GIT的SSH-KEY生成和添加/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2611,7 +2619,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2689,7 +2697,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2731,7 +2743,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -2743,7 +2755,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">18k</span>
+    <span title="站点总字数">20k</span>
   
 
   
@@ -2752,7 +2764,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
   
 </div>
 
