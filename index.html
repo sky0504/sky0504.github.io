@@ -418,7 +418,7 @@
                 
               
 
-              <time title="创建时间：2020-01-27 17:48:54 / 修改时间：17:48:55" itemprop="dateCreated datePublished" datetime="2020-01-27T17:48:54+08:00">2020-01-27</time>
+              <time title="创建时间：2020-01-27 17:48:54 / 修改时间：17:51:41" itemprop="dateCreated datePublished" datetime="2020-01-27T17:48:54+08:00">2020-01-27</time>
             
 
             
@@ -481,7 +481,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">922</span>
+                <span title="本文字数">926</span>
               
 
               
@@ -520,9 +520,11 @@
             <blockquote>
 <p>在使用SQLPlus命令行进行查询时，难免会觉得查询结果不尽人意，展示效果比较差，下面介绍部分内容，供参考</p>
 </blockquote>
-<h3 id="SQLPlus连接上oracle后的设置命令"><a href="#SQLPlus连接上oracle后的设置命令" class="headerlink" title="SQLPlus连接上oracle后的设置命令"></a>SQLPlus连接上oracle后的设置命令</h3><p><code></code><br>set trimspool on;            #去除重定向（spool）输出每行的拖尾空格，缺省为off<br>set linesize 500;            #输出一行字符个数，缺省为80<br>set pagesize 30;             #输出每页行数，缺省为24,为了避免分页，可设定为0。<br>set newpage 3;               #页和页之间隔着n个空行<br>set heading off;             #输出域标题，缺省为on<br>set term off;                #显示脚本中的命令的执行结果，缺省为on<br>set timing on;               #设置显示“已用时间：XXXX”<br>set trimout on;              #去除标准输出每行的拖尾空格，缺省为off<br>set echo off;                #显示start启动的脚本中的每个sql命令，缺省为on<br>set feedback off;            #回显本次sql命令处理的记录条数，缺省为on<br>set numwidth 12;             #输出number类型域长度，缺省为10<br>set pause off;               #关闭从终端读取输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 导出查询结果到文件</span><br><span class="line"></span><br><span class="line">&gt; 常用导出前命令`set linesize 1000 pagesize 0 echo off termout off trimout on trimspool on feedback off pause off;`</span><br></pre></td></tr></table></figure></p>
-<p>spool /root/oracle/sql/test.sql;   #查询结果保存的文件<br>@/root/oracle/sql/test1.sql        #查询<br>spool off;                         ##把文件发送到标准打印输出<br><code>`</code></p>
-
+<h3 id="SQLPlus连接上oracle后的设置命令"><a href="#SQLPlus连接上oracle后的设置命令" class="headerlink" title="SQLPlus连接上oracle后的设置命令"></a>SQLPlus连接上oracle后的设置命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">set trimspool on;            #去除重定向（spool）输出每行的拖尾空格，缺省为off</span><br><span class="line">set linesize 500;            #输出一行字符个数，缺省为80</span><br><span class="line">set pagesize 30;             #输出每页行数，缺省为24,为了避免分页，可设定为0。</span><br><span class="line">set newpage 3;               #页和页之间隔着n个空行</span><br><span class="line">set heading off;             #输出域标题，缺省为on</span><br><span class="line">set term off;                #显示脚本中的命令的执行结果，缺省为on</span><br><span class="line">set timing on;               #设置显示“已用时间：XXXX”</span><br><span class="line">set trimout on;              #去除标准输出每行的拖尾空格，缺省为off</span><br><span class="line">set echo off;                #显示start启动的脚本中的每个sql命令，缺省为on</span><br><span class="line">set feedback off;            #回显本次sql命令处理的记录条数，缺省为on</span><br><span class="line">set numwidth 12;             #输出number类型域长度，缺省为10</span><br><span class="line">set pause off;               #关闭从终端读取输入</span><br></pre></td></tr></table></figure>
+<h3 id="导出查询结果到文件"><a href="#导出查询结果到文件" class="headerlink" title="导出查询结果到文件"></a>导出查询结果到文件</h3><blockquote>
+<p>常用导出前命令<code>set linesize 1000 pagesize 0 echo off termout off trimout on trimspool on feedback off pause off;</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spool /root/oracle/sql/test.sql;   #查询结果保存的文件</span><br><span class="line">@/root/oracle/sql/test1.sql        #查询</span><br><span class="line">spool off;                         ##把文件发送到标准打印输出</span><br></pre></td></tr></table></figure>
           
         
       
@@ -623,7 +625,7 @@
                 
               
 
-              <time title="创建时间：2020-01-27 17:24:54 / 修改时间：17:24:56" itemprop="dateCreated datePublished" datetime="2020-01-27T17:24:54+08:00">2020-01-27</time>
+              <time title="创建时间：2020-01-27 17:24:54 / 修改时间：17:50:13" itemprop="dateCreated datePublished" datetime="2020-01-27T17:24:54+08:00">2020-01-27</time>
             
 
             
@@ -833,7 +835,7 @@
                 
               
 
-              <time title="创建时间：2020-01-27 16:53:07 / 修改时间：17:19:01" itemprop="dateCreated datePublished" datetime="2020-01-27T16:53:07+08:00">2020-01-27</time>
+              <time title="创建时间：2020-01-27 16:53:07 / 修改时间：17:50:11" itemprop="dateCreated datePublished" datetime="2020-01-27T16:53:07+08:00">2020-01-27</time>
             
 
             
@@ -896,7 +898,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.1k</span>
+                <span title="本文字数">1.3k</span>
               
 
               
@@ -948,6 +950,7 @@
 <li>添加oracle连接配置文件内容<code>vi /usr/lib/oracle/11.2/client64/lib/network/admin/tnsnames.ora</code>内容如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WANG =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.68.75.195)(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">      (SERVICE_NAME = WANG)</span><br><span class="line">    )</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p><em>其他相关变量</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export ORACLE_HOME=/usr/lib/oracle/12.1/client64</span><br><span class="line">export PATH=$PATH:$ORACLE_HOME/bin</span><br><span class="line">export LD_LIBRARY_PATH=$ORACLE_HOME/lib</span><br><span class="line">export TNS_ADMIN=$ORACLE_HOME/network/admin</span><br></pre></td></tr></table></figure></p>
 <h2 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h2><p><em>linux连接成功后如果出现中文乱码</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NLS_LANG=AMERICAN_AMERICA.UTF8</span><br></pre></td></tr></table></figure>
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ul>
@@ -2764,7 +2767,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">19 分钟</span>
   
 </div>
 
